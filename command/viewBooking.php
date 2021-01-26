@@ -5,12 +5,12 @@ function viewBookingUser($id_user)
 {
 
     $queryviewBookingUser = "SELECT id, name, ic, phone, bookdate FROM appointments WHERE id_user = $id_user";
-    $resultQueryView      = mysqli_query(connDB(), $queryviewBookingUser);
+    $resultQueryView      = pg_query(connDB(), $queryviewBookingUser);
 
     $message = "";
 
     if ($resultQueryView->num_rows > 0) {
-        while ($viewDataBooking = mysqli_fetch_assoc($resultQueryView)) {
+        while ($viewDataBooking = pg_fetch_assoc($resultQueryView)) {
             $resultBooking = (object) $viewDataBooking;
 
             $message .= "Booking ID   : " . $resultBooking->id . PHP_EOL;

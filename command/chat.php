@@ -9,9 +9,9 @@ date_default_timezone_set('Asia/Kuala_Lumpur');
 function checkDataUser($id_user)
 {
     $querySelectData    = "SELECT * FROM parents WHERE id_user = $id_user LIMIT 1";
-    $resultQuery        = mysqli_query(connDB(), $querySelectData);
+    $resultQuery        = pg_query(connDB(), $querySelectData);
 
-    return (object) mysqli_fetch_assoc($resultQuery);
+    return (object) pg_fetch_assoc($resultQuery);
 }
 
 function getDataUser($user)
@@ -29,5 +29,5 @@ function insertNewUser($dataUser)
     $queryInsertNewUser    = "INSERT INTO parents (id_user, name)
                             VALUES ($dataUser->id_user, '$dataUser->name')";
 
-    mysqli_query(connDB(), $queryInsertNewUser);
+    pg_query(connDB(), $queryInsertNewUser);
 }
