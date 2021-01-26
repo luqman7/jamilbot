@@ -7,14 +7,15 @@ function updateBooking($id_user, $id, $name, $ic, $phone, $bookdate)
 
     $queryFlagUpdate = "SELECT id FROM appointments WHERE id_user = $id_user AND id = $id";
     $resultQueryFlag  = pg_query(connDB(), $queryFlagUpdate);
+    $rows = pg_num_rows($resultQueryFlag);
 
     $message = "";
 
     // ketika data ada dan sesuai eksekusi bro
-    if ($resultQueryFlag->num_rows > 0) {
+    if ($rows > 0) {
 
         $queryUpdateBooking = "UPDATE appointments SET name='$name', ic='$ic', phone='$phone', bookdate='$bookdate' WHERE id_user=$id_user AND id = $id";
-        $resultQueryUpdate  = pg_query(connDB(), $queryUpdateBooking);
+        $resultQueryUpdate  = mysqli_query(connDB(), $queryUpdateBooking);
 
         $message = "Edit Successfully 😉";
     } else {

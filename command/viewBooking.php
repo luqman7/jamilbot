@@ -6,10 +6,11 @@ function viewBookingUser($id_user)
 
     $queryviewBookingUser = "SELECT id, name, ic, phone, bookdate FROM appointments WHERE id_user = $id_user";
     $resultQueryView      = pg_query(connDB(), $queryviewBookingUser);
+    $rows = pg_num_rows($resultQueryView);
 
     $message = "";
 
-    if ($resultQueryView->num_rows > 0) {
+    if ($rows > 0) {
         while ($viewDataBooking = pg_fetch_assoc($resultQueryView)) {
             $resultBooking = (object) $viewDataBooking;
 
