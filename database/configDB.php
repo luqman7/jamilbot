@@ -7,9 +7,11 @@ function connDB()
     $host        = "host = ec2-54-235-158-17.compute-1.amazonaws.com";
     $port        = "port = 5432";
     $dbname      = "dbname = fyp";
-    $credentials = "user = buulugaexiflfy password=c9232749191e959e79ce0a0fd1b806a7bb835354b6d391dfd54b596c2a750f92";
+    $user        = "user = buulugaexiflfy";
+    $password    = "password = c9232749191e959e79ce0a0fd1b806a7bb835354b6d391dfd54b596c2a750f92";
+    //$credentials = "user = buulugaexiflfy password=c9232749191e959e79ce0a0fd1b806a7bb835354b6d391dfd54b596c2a750f92";
 
-    $db = pg_connect("$url $host $port $dbname $credentials");
+    $db = pg_connect("$url $host $port $dbname $user $password");
     if (!$db) {
         echo "Error : Unable to open database\n";
     } else {
