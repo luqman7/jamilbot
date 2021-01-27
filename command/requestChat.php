@@ -1,5 +1,5 @@
 <?php
-require_once './chat.php';
+require_once 'chat.php';
 
 $user = $bot->getUser();
 $id_user = $user->getId();
