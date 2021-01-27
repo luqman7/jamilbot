@@ -15,7 +15,7 @@ function updateBooking($id_user, $id, $name, $ic, $phone, $bookdate)
     if ($rows > 0) {
 
         $queryUpdateBooking = "UPDATE appointments SET name='$name', ic='$ic', phone='$phone', bookdate='$bookdate' WHERE id_user=$id_user AND id = $id";
-        $resultQueryUpdate  = mysqli_query(connDB(), $queryUpdateBooking);
+        $resultQueryUpdate  = pg_query(connDB(), $queryUpdateBooking);
 
         $message = "Edit Successfully 😉";
     } else {

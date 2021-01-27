@@ -14,7 +14,7 @@ function delBooking($id_user, $id)
     if ($rows > 0) {
 
         $queryDeleteBooking = "DELETE FROM appointments WHERE id_user = $id_user AND id=$id";
-        $resultQueryDelete  = mysqli_query(connDB(), $queryDeleteBooking);
+        $resultQueryDelete  = pg_query(connDB(), $queryDeleteBooking);
 
         $message = "Appointment Deleted 😉";
     } else {
