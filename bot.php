@@ -53,7 +53,7 @@ $botman->hears("/book_appointment", function (BotMan $bot) {
     $bot->reply("Format Booking:\n\n/book [Name]_[IC]_[Phone]_[Appointment Date]\n\n*Without brackets []");
 });
 
-$botman->hears("/book {name}_{ic}_{phone}_{bookdate}", function (Botman $bot, $name, $ic, $phone, $bookdate) {
+$botman->hears("/book {name}_{ic}_{phone}_{bookdate}", function ($bot, $name, $ic, $phone, $bookdate) {
     $user = $bot->getUser();
     $firstname = $user->getFirstName();
     $id_user = $user->getId();
