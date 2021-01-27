@@ -1,5 +1,6 @@
 {
     "require": {
+        "php": "7.4.10",
         "botman/botman": "^2.6",
         "botman/driver-telegram": "^1.6"
     }
