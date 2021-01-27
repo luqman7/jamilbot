@@ -14,6 +14,7 @@ function connDB()
     $db = pg_connect("$url $host $port $dbname $user $password");
     if (!$db) {
         echo "Error : Unable to open database\n";
+        throw "something";
     } else {
         echo "Opened database successfully\n";
 
