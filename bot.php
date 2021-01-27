@@ -58,16 +58,13 @@ $botman->hears("/book {name}_{ic}_{phone}_{bookdate}", function (Botman $bot, $n
     $firstname = $user->getFirstName();
     $id_user = $user->getId();
 
-    $name = $name;
-    $ic = $ic;
-    $phone = $phone;
-    $bookdate = $bookdate;
+    $bot->reply("$name | $ic | $phone | $bookdate");
 
-    include(__DIR__ . "/command/requestChat.php");
-    include(__DIR__ . "/command/bookAppointment.php");
+    // include(__DIR__ . "/command/requestChat.php");
+    // include(__DIR__ . "/command/bookAppointment.php");
 
-    $message = bookApt($id_user, $name, $ic, $phone, $bookdate);
-    $bot->reply($message);
+    // $message = bookApt($id_user, $name, $ic, $phone, $bookdate);
+    // $bot->reply($message);
 });
 
 $botman->hears("/viewBooking", function (Botman $bot) {
