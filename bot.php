@@ -61,6 +61,8 @@ $botman->hears("/book {name}_{ic}_{phone}_{bookdate}", function ($bot, $name, $i
     include(__DIR__ . "/command/requestChat.php");
     include(__DIR__ . "/command/bookAppointment.php");
 
+    $bot->reply("$name|$ic|$phone|$bookdate");
+
     $message = bookApt($id_user, $name, $ic, $phone, $bookdate);
     $bot->reply($message);
 });
