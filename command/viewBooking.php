@@ -1,5 +1,5 @@
 <?php
-require_once 'database/configDB.php';
+require_once '../database/configDB.php';
 
 function viewBookingUser($id_user)
 {
