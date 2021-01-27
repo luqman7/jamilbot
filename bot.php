@@ -8,8 +8,8 @@ use BotMan\BotMan\Messages\Attachments\Image;
 use BotMan\BotMan\Messages\Attachments\Video;
 use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
 
-require_once 'vendor/autoload.php';
-require_once 'database/configDB.php';
+require_once '../vendor/autoload.php';
+require_once '../database/configDB.php';
 
 $configs = [
     "telegram" => [
