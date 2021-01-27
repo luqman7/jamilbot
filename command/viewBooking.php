@@ -15,7 +15,7 @@ function viewBookingUser($id_user)
             $resultBooking = (object) $viewDataBooking;
 
             $message .= "Booking ID   : " . $resultBooking->id . PHP_EOL;
-            $message .= "Name   :" . $resultBooking->name . PHP_EOL;
+            $message .= "Name   : " . $resultBooking->name . PHP_EOL;
             $message .= "IC   : " . $resultBooking->ic . PHP_EOL;
             $message .= "Contacts   : " . $resultBooking->phone . PHP_EOL;
             $message .= "Book Date   : " . $resultBooking->bookdate . PHP_EOL;
