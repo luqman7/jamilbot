@@ -8,8 +8,8 @@ use BotMan\BotMan\Messages\Attachments\Image;
 use BotMan\BotMan\Messages\Attachments\Video;
 use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
 
-require_once 'vendor/autoload.php';
-require_once 'database/configDB.php';
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once(__DIR__ . '/database/configDB.php');
 
 $configs = [
     "telegram" => [
@@ -36,7 +36,7 @@ $botman->hears("/help", function (Botman $bot) {
     $firstname = $user->getFirstName();
     $id_user = $user->getId();
 
-    include "command/requestChat.php";
+    include(__DIR__ . "/command/requestChat.php");
 
     $bot->reply("/book_appointment to set your appointment");
     $bot->reply("/viewBooking to view your appointment");
@@ -49,7 +49,7 @@ $botman->hears("/book_appointment", function (BotMan $bot) {
     $firstname = $user->getFirstName();
     $id_user = $user->getId();
 
-    include "command/requestChat.php";
+    include(__DIR__ . "/command/requestChat.php");
     $bot->reply("Format Booking:\n\n/book [Name]_[IC]_[Phone]_[Appointment Date]\n\n*Without brackets []");
 });
 
@@ -63,8 +63,8 @@ $botman->hears("/book {name}_{ic}_{phone}_{bookdate}", function (Botman $bot, $n
     $phone = $phone;
     $bookdate = $bookdate;
 
-    include "command/requestChat.php";
-    include "command/bookAppointment.php";
+    include(__DIR__ . "/command/requestChat.php");
+    include(__DIR__ . "/command/bookAppointment.php");
 
     $message = bookApt($id_user, $name, $ic, $phone, $bookdate);
     $bot->reply($message);
@@ -75,8 +75,8 @@ $botman->hears("/viewBooking", function (Botman $bot) {
     $firstname = $user->getFirstName();
     $id_user = $user->getId();
 
-    include "command/requestChat.php";
-    include "command/viewBooking.php";
+    include(__DIR__ . "/command/requestChat.php");
+    include(__DIR__ . "/command/viewBooking.php");
 
     $message = viewBookingUser($id_user);
     $bot->reply($message);
@@ -87,7 +87,7 @@ $botman->hears("/edit_booking_appointment", function (Botman $bot) {
     $firstname = $user->getFirstName();
     $id_user = $user->getId();
 
-    include "command/requestChat.php";
+    include(__DIR__ . "/command/requestChat.php");
     $bot->reply("Format Edit Booking:\n\n/edit_booking [Your appointment ID]_[New Name As In IC]_[New IC Number]_[New Phone Number]_[New Date YYYY-MM-DD]\n\n*Without Brackets []\nRefer Appointment ID at /viewBooking");
 });
 
@@ -96,7 +96,7 @@ $botman->hears("/edit_booking {id}_{name}_{ic}_{phone}_{bookdate}", function (Bo
     $firstname = $user->getFirstName();
     $id_user = $user->getId();
 
-    include "command/requestChat.php";
+    include(__DIR__ . "/command/requestChat.php");
 
     $id = $id;
     $name = $name;
@@ -104,7 +104,7 @@ $botman->hears("/edit_booking {id}_{name}_{ic}_{phone}_{bookdate}", function (Bo
     $phone = $phone;
     $bookdate = $bookdate;
 
-    include "command/updateBooking.php";
+    include(__DIR__ . "/command/updateBooking.php");
 
     $message = updateBooking($id_user, $id, $name, $ic, $phone, $bookdate);
     $bot->reply($message);
@@ -115,7 +115,7 @@ $botman->hears("/cancel_booking_appointment", function (Botman $bot) {
     $firstname = $user->getFirstName();
     $id_user = $user->getId();
 
-    include "command/requestChat.php";
+    include(__DIR__ . "/command/requestChat.php");
 
     $bot->reply("Format Delete Booking:\n\n/delete_booking [Enter Your Appointment ID]\n\n*Tanpa Tanda Kurung []\nRefer Appointment ID at /viewBooking");
 });
@@ -125,11 +125,11 @@ $botman->hears("/delete_booking {id}", function (Botman $bot, $id) {
     $firstname = $user->getFirstName();
     $id_user = $user->getId();
 
-    include "command/requestChat.php";
+    include(__DIR__ . "/command/requestChat.php");
 
     $id = $id;
 
-    include "command/delBooking.php";
+    include(__DIR__ . "/command/delBooking.php");
 
     $message = delBooking($id_user, $id);
     $bot->reply($message);
