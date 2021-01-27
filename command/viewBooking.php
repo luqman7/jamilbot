@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . '../database/configDB.php');
+require_once(__DIR__ . '/../database/configDB.php');
 
 function viewBookingUser($id_user)
 {

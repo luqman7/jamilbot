@@ -2,7 +2,7 @@
 
 namespace ChatTele;
 
-require_once(__DIR__ . '../database/configDB.php');
+require_once(__DIR__ . '/../database/configDB.php');
 
 date_default_timezone_set('Asia/Kuala_Lumpur');
 
